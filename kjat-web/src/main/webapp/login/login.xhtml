@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="UTF-8" />
+        <h:outputStylesheet library="css" name="style.css" />
+        <h:outputScript name="jsf.js" library="javax.faces"/>
+        <h:outputScript library="js" name="application.js" />
+        <title>kjat</title>
+    </h:head>
+    <h:body>
+        <div id="top_content">
+            <h:form id="form">
+                <h1>ログイン</h1>
+                <div class="notice">
+                    <div>
+                        <label>社員番号※</label>
+                        <div>
+                            <h:inputText id="login-id" value="#{loginBean.loginId}" />
+                            <h:message for="login-id" errorClass="error"/>
+                        </div>
+                    </div>
+                    <div>
+                        <label>パスワード※</label>
+                        <div>
+                            <h:inputSecret id="password" value="#{loginBean.password}" />
+                            <h:message for="password" errorClass="error"/>
+                        </div>
+                    </div>
+                    <div>
+                        <h:commandButton id="login-button" action="#{loginBean.login()}" value="ログイン" />
+                    </div>
+                </div>
+                <div>
+                    <h:link value="パスワード初期化リンク"/>
+                </div>
+                <div>
+                <h1>お知らせ</h1>
+                <h:inputTextarea value="お知らせです。お知らせです。お知らせです。お知らせです。" readonly="true" />
+                </div>
+            </h:form>
+        </div>
+    </h:body>
+</html>
