@@ -1,5 +1,5 @@
 
-package com.kjat.web.entity;
+package com.kjat.entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;
