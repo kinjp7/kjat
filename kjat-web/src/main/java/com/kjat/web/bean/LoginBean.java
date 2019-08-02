@@ -38,6 +38,10 @@ public class LoginBean {
     
     public String login(){
         try{
+        String page = null;
+        AppUser user = new AppUser();
+        user.setUserId(userId);
+        AuthStatus authStatus = authenticator.authenticate(user, password, userManager);
             //ユーザーマスタ情報取得を行う。
             
             //ユーザーマスタの取得チェックを行う。
@@ -51,6 +55,11 @@ public class LoginBean {
             //ログインエラー時はエラー画面へ遷移
             return "error";
         }
+    }
+    
+    //お知らせ欄表示
+    public String getInfo(){
+        return "";
     }
     
     
