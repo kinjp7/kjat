@@ -22,7 +22,7 @@ public class MUser implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Column(name = "employeeNo", nullable = false)
+    @Column(name = "employee_no", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String employeeNo;
     

@@ -1,6 +1,8 @@
 
 package com.kjat.web.bean;
 
+import com.kjat.entity.MUser;
+import com.kjat.service.MUserFacade;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -15,10 +17,13 @@ import javax.validation.constraints.NotNull;
 @Named
 @RequestScoped
 public class LoginBean {
-    @NotNull
+    
+    @Inject 
+    MUserFacade mUserFacade;
+    
     @Inject
     private String loginId; // ログインID
-    @NotNull
+    
     @Inject
     private String password; // パスワード
     
@@ -38,12 +43,14 @@ public class LoginBean {
     
     public String login(){
         try{
-        String page = null;
-        AppUser user = new AppUser();
-        user.setUserId(userId);
-        AuthStatus authStatus = authenticator.authenticate(user, password, userManager);
+        //String page = null;
+        //AppUser user = new AppUser();
+        //user.setUserId(userId);
+        //AuthStatus authStatus = authenticator.authenticate(user, password, userManager);
             //ユーザーマスタ情報取得を行う。
-            
+                    //ユーザIDからアカウント情報を取得
+            MUser mUser = mUserFacade.findByUserId(loginId);
+
             //ユーザーマスタの取得チェックを行う。
             
             
