@@ -3,6 +3,8 @@ package com.kjat.web.bean;
 
 import com.kjat.entity.MUser;
 import com.kjat.service.MUserFacade;
+import java.io.Serializable;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,9 +16,10 @@ import javax.validation.constraints.NotNull;
  * @since 2019/07/27
  * @author ????
  */
+//@Dependent
 @Named
 @RequestScoped
-public class LoginBean {
+public class LoginBean implements Serializable{
     
     @Inject 
     MUserFacade mUserFacade;
