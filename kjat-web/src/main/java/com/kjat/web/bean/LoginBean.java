@@ -24,10 +24,11 @@ public class LoginBean implements Serializable{
     @Inject 
     MUserFacade mUserFacade;
     
-    @Inject
+    //@Required(allowSpace = false)
+     
     private String loginId; // ログインID
     
-    @Inject
+    //@Required(allowSpace = false)
     private String password; // パスワード
     
     //gg

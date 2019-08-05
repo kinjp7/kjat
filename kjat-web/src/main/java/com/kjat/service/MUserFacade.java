@@ -2,9 +2,11 @@
 package com.kjat.service;
 
 import com.kjat.entity.MUser;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -25,9 +27,13 @@ public class MUserFacade {
     
     public MUser findByUserId(String loginId){
         
-        Query query = em.createNamedQuery("SELECT a FROM m_user a WHERE a.employee_no = :employee_no");
-        query.setParameter("employee_no", loginId);
-        MUser mUser = (MUser)query.getSingleResult();
+        String jpql = "SELECT a FROM m_user a";
+      
+        TypedQuery<MUser> query = em.createQuery(jpql,MUser.class);
+        List<MUser> mUserList = query.getResultList();
+        mUserList.stream().forEach(a -> System.out.println(a.getEmployeeNameKana()));
+
+        MUser mUser = null;
         return mUser;
         
     }
