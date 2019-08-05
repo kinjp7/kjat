@@ -30,6 +30,14 @@ public class LoginBean implements Serializable{
     @Inject
     private String password; // パスワード
     
+    //gg
+    /*@Required(allowSpace = false)
+    private String userId;
+    
+    @Required(allowSpace = false)
+    private String password;
+    */
+    
     public String getLoginId(){
         return this.loginId;
     }
