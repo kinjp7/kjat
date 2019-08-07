@@ -27,7 +27,7 @@ public class MUserFacade {
     
     public MUser findByUserId(String loginId){
         
-        String jpql = "SELECT a FROM m_user a";
+        String jpql = "SELECT k FROM m_user k";
       
         TypedQuery<MUser> query = em.createQuery(jpql,MUser.class);
         List<MUser> mUserList = query.getResultList();
