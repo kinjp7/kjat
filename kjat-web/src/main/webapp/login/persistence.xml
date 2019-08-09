@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="gpasPU" transaction-type="JTA">
+        <jta-data-source>jdbc/gpas</jta-data-source>
+        <!--converter class-->
+        <class>com.kddi.gpas.base.db.converter.BooleanConverter</class>
+        <class>com.kddi.gpas.base.db.converter.LocalDateTimeConverter</class>
+        <!--entity class-->
+        <class>com.kddi.gpas.base.db.entity.MAwsConfigEntity</class>
+        <class>com.kddi.gpas.base.db.entity.MKyotenEntity</class>
+        <class>com.kddi.gpas.base.db.entity.MApplicationEntity</class>
+        <class>com.kddi.gpas.base.db.entity.MMailTemplateEntity</class>
+        <class>com.kddi.gpas.base.db.entity.MReferenceEntity</class>
+        <class>com.kddi.gpas.base.db.entity.MUserEntity</class>
+        <class>com.kddi.gpas.base.db.entity.TtApplicationApprovalHistoryEntity</class>
+        <class>com.kddi.gpas.base.db.entity.TtApplyEntity</class>
+        <class>com.kddi.gpas.base.db.entity.TtFileManagementEntity</class>
+        <class>com.kddi.gpas.base.db.entity.TtPasswordHistoryEntity</class>
+        <class>com.kddi.gpas.base.db.entity.TtTempPasswordEntity</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="eclipselink.session.customizer" value="jp.co.ikic.argo.javaee.log.custom.JPAEclipseLinkSessionCustomizer"/>
+            <!--L2キャッシュ無効化-->
+            <property name="eclipselink.cache.shared.default" value="false"/> 
+            <property name="eclipselink.cache.size.default" value="0"/> 
+            <property name="eclipselink.cache.type.default" value="None"/>
+        </properties>
+    </persistence-unit>
+</persistence>
