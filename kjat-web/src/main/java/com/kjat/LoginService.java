@@ -1,7 +1,8 @@
 
-package com.kjat.service;
+package com.kjat;
 
-import com.kjat.entity.MUser;
+import com.kjat.web.service.login.*;
+import com.kjat.entity.MUserEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +15,7 @@ import javax.persistence.TypedQuery;
  * @since 2019/08/03
  * @author ??
  */
-public class MUserFacade {
+public class LoginService {
     @PersistenceContext(unitName = "kjatPU")
     private EntityManager em;
     
@@ -22,18 +23,18 @@ public class MUserFacade {
         return em;
     }
 
-    public MUserFacade() {
+    public LoginService() {
     }    
     
-    public MUser findByUserId(String loginId){
+    public MUserEntity findByUserId(String loginId){
         
         String jpql = "SELECT k FROM m_user k";
       
-        TypedQuery<MUser> query = em.createQuery(jpql,MUser.class);
-        List<MUser> mUserList = query.getResultList();
+        TypedQuery<MUserEntity> query = em.createQuery(jpql,MUserEntity.class);
+        List<MUserEntity> mUserList = query.getResultList();
         mUserList.stream().forEach(a -> System.out.println(a.getEmployeeNameKana()));
 
-        MUser mUser = null;
+        MUserEntity mUser = null;
         return mUser;
         
     }

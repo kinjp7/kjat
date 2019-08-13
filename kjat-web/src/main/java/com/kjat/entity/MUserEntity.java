@@ -19,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name ="m_user")
-public class MUser implements Serializable {
+public class MUserEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
@@ -59,11 +59,11 @@ public class MUser implements Serializable {
     private String lockFlg;
             
     
-    public MUser(){
+    public MUserEntity(){
         
     }
     
-    public MUser(String employeeNo){
+    public MUserEntity(String employeeNo){
         this.employeeNo = employeeNo;
     }
     
@@ -164,10 +164,10 @@ public class MUser implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof MUser)) {
+        if (!(object instanceof MUserEntity)) {
             return false;
         }
-        MUser other = (MUser) object;
+        MUserEntity other = (MUserEntity) object;
         if ((this.employeeNo == null && other.employeeNo != null) || (this.employeeNo != null && !this.employeeNo.equals(other.employeeNo))) {
             return false;
         }

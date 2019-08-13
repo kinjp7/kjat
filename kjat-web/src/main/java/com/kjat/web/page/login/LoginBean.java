@@ -1,8 +1,8 @@
 
-package com.kjat.web.bean;
+package com.kjat.web.page.login;
 
-import com.kjat.entity.MUser;
-import com.kjat.service.MUserFacade;
+import com.kjat.entity.MUserEntity;
+import com.kjat.web.service.login.LoginService;
 import java.io.Serializable;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
@@ -22,7 +22,7 @@ import javax.validation.constraints.NotNull;
 public class LoginBean implements Serializable{
     
     @Inject 
-    MUserFacade mUserFacade;
+    LoginService loginService;
     
     //@Required(allowSpace = false)
      
@@ -61,8 +61,9 @@ public class LoginBean implements Serializable{
         //AuthStatus authStatus = authenticator.authenticate(user, password, userManager);
             //ユーザーマスタ情報取得を行う。
                     //ユーザIDからアカウント情報を取得
-            MUser mUser = mUserFacade.findByUserId(loginId);
-
+        // 件数取得
+        recordCount = loginService.getCountByCondition(getCondition());
+        
             //ユーザーマスタの取得チェックを行う。
             
             
